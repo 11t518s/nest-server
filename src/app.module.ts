@@ -7,9 +7,10 @@ import { LoggerMiddleware } from '../middleware/logger.middleware';
 import { ConfigModule } from '@nestjs/config';
 import * as process from 'process';
 import { HttpExceptionFilter } from '../filter/exception/http.exception.filter';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true, cache: true })],
+  imports: [ConfigModule.forRoot({ isGlobal: true, cache: true }), AuthModule],
 
   controllers: [AppController],
   providers: [
